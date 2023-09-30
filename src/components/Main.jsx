@@ -39,6 +39,21 @@ function MultipleChoiceForm() {
     setLanguages([]);
   };
 
+  const handleDrawLangueages = (e) => {
+    const optionValue = e.target.value;
+
+    if (languages.includes(optionValue)) {
+      setLanguages(languages.filter((lang) => lang !== optionValue));
+    }
+  };
+
+  const handleDrawDays = (e) => {
+    const optionValue = e.target.value;
+    if (days.includes(optionValue)) {
+      setDays(days.filter((day) => day !== optionValue));
+    }
+  };
+
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit}>
@@ -51,6 +66,7 @@ function MultipleChoiceForm() {
                 value="JS"
                 checked={languages.includes("JS")}
                 onChange={handleLanguages}
+                onClick={(e) => handleDrawLangueages(e)}
               />
               JavaScript
             </label>
@@ -60,6 +76,7 @@ function MultipleChoiceForm() {
                 value="Python"
                 checked={languages.includes("Python")}
                 onChange={handleLanguages}
+                onClick={(e) => handleDrawLangueages(e)}
               />
               Python
             </label>
@@ -69,6 +86,7 @@ function MultipleChoiceForm() {
                 value="Elephant"
                 checked={languages.includes("Elephant")}
                 onChange={handleLanguages}
+                onClick={(e) => handleDrawLangueages(e)}
               />
               Elephant
             </label>
@@ -86,6 +104,7 @@ function MultipleChoiceForm() {
                 value="Monday"
                 checked={days.includes("Monday")}
                 onChange={handleDays}
+                onClick={(e) => handleDrawDays(e)}
               />
               Monday
             </label>
@@ -95,6 +114,7 @@ function MultipleChoiceForm() {
                 value="Sunday"
                 checked={days.includes("Sunday")}
                 onChange={handleDays}
+                onClick={(e) => handleDrawDays(e)}
               />
               Sunday
             </label>
@@ -104,6 +124,7 @@ function MultipleChoiceForm() {
                 value="Weekend"
                 checked={days.includes("Weekend")}
                 onChange={handleDays}
+                onClick={(e) => handleDrawDays(e)}
               />
               Weekend
             </label>
