@@ -8,13 +8,11 @@ function MultipleChoiceForm() {
 
   const handleFavLanguage = (event) => {
     const optionValue = event.target.value;
-
     setFavLanguage(optionValue);
   };
 
   const handleDays = (event) => {
     const optionValue = event.target.value;
-
     if (days.includes(optionValue)) {
       setDays(days.filter((day) => day !== optionValue));
     } else {
@@ -24,7 +22,6 @@ function MultipleChoiceForm() {
 
   const handleLanguages = (event) => {
     const optionValue = event.target.value;
-
     if (languages.includes(optionValue)) {
       setLanguages(languages.filter((language) => language !== optionValue));
     } else {
@@ -43,118 +40,113 @@ function MultipleChoiceForm() {
   };
 
   return (
-    <div className="form">
+    <div className="form-container">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="">Which ones are Programming language?</label>
-        <div>
-          <label>
-            <input
-              type="radio"
-              value="JS"
-              checked={languages.includes("JS")}
-              onChange={handleLanguages}
-            />
-            JS
-          </label>
-        </div>
-        <div>
-          <label>
-            <input
-              type="radio"
-              value="Python"
-              checked={languages.includes("Python")}
-              onChange={handleLanguages}
-            />
-            Python
-          </label>
-        </div>
-        <div>
-          <label>
-            <input
-              type="radio"
-              value="Elephant"
-              checked={languages.includes("Elephant")}
-              onChange={handleLanguages}
-            />
-            Elephant
-          </label>
-        </div>
-      </form>
-      {/* Second Group */}
-      <form action="" onSubmit={handleSubmit}>
-        <label htmlFor="">Which ones are days of a week?</label>
-        <div>
-          <label>
-            <input
-              type="radio"
-              value="Monday"
-              checked={days.includes("Monday")}
-              onChange={handleDays}
-            />
-            Monday
-          </label>
-        </div>
-        <div>
-          <label>
-            <input
-              type="radio"
-              value="Sunday"
-              checked={days.includes("Sunday")}
-              onChange={handleDays}
-            />
-            Sunday
-          </label>
-        </div>
-        <div>
-          <label>
-            <input
-              type="radio"
-              value="Weekend"
-              checked={days.includes("Weekend")}
-              onChange={handleDays}
-            />
-            Weekend
-          </label>
+        <div className="form-group">
+          <label>Which ones are Programming languages?</label>
+          <div className="radio-group">
+            <label>
+              <input
+                type="radio"
+                value="JS"
+                checked={languages.includes("JS")}
+                onChange={handleLanguages}
+              />
+              JavaScript
+            </label>
+            <label>
+              <input
+                type="radio"
+                value="Python"
+                checked={languages.includes("Python")}
+                onChange={handleLanguages}
+              />
+              Python
+            </label>
+            <label>
+              <input
+                type="radio"
+                value="Elephant"
+                checked={languages.includes("Elephant")}
+                onChange={handleLanguages}
+              />
+              Elephant
+            </label>
+          </div>
         </div>
       </form>
 
-      {/* Last Group */}
-      <form action="" onSubmit={handleSubmit}>
-        <label htmlFor="">What is your favourite language?</label>
-        <div>
-          <label>
-            <input
-              type="radio"
-              value="JS"
-              checked={favLanguage === "JS"}
-              onChange={handleFavLanguage}
-            />
-            JS
-          </label>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>Which ones are days of a week?</label>
+          <div className="radio-group">
+            <label>
+              <input
+                type="radio"
+                value="Monday"
+                checked={days.includes("Monday")}
+                onChange={handleDays}
+              />
+              Monday
+            </label>
+            <label>
+              <input
+                type="radio"
+                value="Sunday"
+                checked={days.includes("Sunday")}
+                onChange={handleDays}
+              />
+              Sunday
+            </label>
+            <label>
+              <input
+                type="radio"
+                value="Weekend"
+                checked={days.includes("Weekend")}
+                onChange={handleDays}
+              />
+              Weekend
+            </label>
+          </div>
         </div>
-        <div>
-          <label>
-            <input
-              type="radio"
-              value="Java"
-              checked={favLanguage === "Java"}
-              onChange={handleFavLanguage}
-            />
-            Java
-          </label>
+      </form>
+
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>What is your favourite language?</label>
+          <div className="radio-group">
+            <label>
+              <input
+                type="radio"
+                value="JS"
+                checked={favLanguage === "JS"}
+                onChange={handleFavLanguage}
+              />
+              JavaScript
+            </label>
+            <label>
+              <input
+                type="radio"
+                value="Java"
+                checked={favLanguage === "Java"}
+                onChange={handleFavLanguage}
+              />
+              Java
+            </label>
+            <label>
+              <input
+                type="radio"
+                value="C#"
+                checked={favLanguage === "C#"}
+                onChange={handleFavLanguage}
+              />
+              C#
+            </label>
+          </div>
         </div>
-        <div>
-          <label>
-            <input
-              type="radio"
-              value="C#"
-              checked={favLanguage === "C#"}
-              onChange={handleFavLanguage}
-            />
-            C#
-          </label>
-        </div>
-        <button type="submit">Submit</button>
+        <button type="submit" className="submit-button">
+          Submit
+        </button>
       </form>
     </div>
   );
