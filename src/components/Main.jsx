@@ -54,6 +54,12 @@ function MultipleChoiceForm() {
     }
   };
 
+  const handelDrawFavLanguage = (e) => {
+    const optionValue = e.target.value;
+    if (favLanguage === optionValue) {
+      setFavLanguage("");
+    }
+  };
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit}>
@@ -142,6 +148,7 @@ function MultipleChoiceForm() {
                 value="JS"
                 checked={favLanguage === "JS"}
                 onChange={handleFavLanguage}
+                onClick={(e) => handelDrawFavLanguage(e)}
               />
               JavaScript
             </label>
@@ -151,6 +158,7 @@ function MultipleChoiceForm() {
                 value="Java"
                 checked={favLanguage === "Java"}
                 onChange={handleFavLanguage}
+                onClick={(e) => handelDrawFavLanguage(e)}
               />
               Java
             </label>
@@ -160,6 +168,7 @@ function MultipleChoiceForm() {
                 value="C#"
                 checked={favLanguage === "C#"}
                 onChange={handleFavLanguage}
+                onClick={(e) => handelDrawFavLanguage(e)}
               />
               C#
             </label>
